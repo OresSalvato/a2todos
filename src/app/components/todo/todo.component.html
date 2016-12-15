@@ -1,0 +1,42 @@
+<section class="todoItem">
+	<div *ngIf="_state === _eState.Default">
+		<md-card class="demo-card demo-basic">
+			<md-card-content>
+				<h3 md-line (click)="editTodo(todo)">{{_todo.id}}. {{_todo.text}}</h3>
+				<p md-line><button class="btn btn-danger" (click)="deleteTodo(todo)">X</button></p>
+			</md-card-content>
+		</md-card>
+	</div>
+	<div *ngIf="_state === _eState.Add">
+		<md-card class="demo-card demo-basic">
+			<form (submit)="addTodo()">
+				<md-card-header>
+					<md-card-title>Add new Todo</md-card-title>
+				</md-card-header>
+				<md-card-content>
+					<md-input placeholder="Vārds" type="text" [(ngModel)]="todo.text" [ngModelOptions]="{standalone: true}"></md-input>
+				</md-card-content>
+				<md-card-actions>
+					<button md-button type="submit" class="btn btn-default">Ok</button>
+					<button md-button type="reset" class="btn btn-primary">Cancel</button>
+				</md-card-actions>
+			</form>
+		</md-card>
+	</div>
+	<div *ngIf="_state === _eState.Edit">
+		<md-card class="demo-card demo-basic">
+			<form (submit)="updateTodo(_todo)" (reset)="globals.state = _eState.Default;">
+				<md-card-header>
+					<md-card-title>{{globals.state}} current Todo</md-card-title>
+				</md-card-header>
+				<md-card-content>
+					<md-input placeholder="Vārds" type="text" [(ngModel)]="_todo.text" [ngModelOptions]="{standalone: true}"></md-input>
+				</md-card-content>
+				<md-card-actions>
+					<button md-button type="submit" class="btn btn-default">Ok</button>
+					<button md-button type="reset" class="btn btn-primary">Cancel</button>
+				</md-card-actions>
+			</form>
+		</md-card>
+	</div>
+</section>

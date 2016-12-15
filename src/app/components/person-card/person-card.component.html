@@ -1,0 +1,31 @@
+<div *ngIf="globals.state == _eState.Default">
+	<md-card class="demo-card demo-basic">
+		<md-toolbar color="primary">Add new Person Card</md-toolbar>
+		<md-card-content>
+			<form (submit)="addPersonCard()">
+				<md-input placeholder="Vārds" type="text" [(ngModel)]="personCard.name" [ngModelOptions]="{standalone: true}"></md-input>
+				<md-input placeholder="Uzvārds" type="text" [(ngModel)]="personCard.surname" [ngModelOptions]="{standalone: true}"></md-input>
+				<md-input placeholder="Dzimšanas datums" type="date" [(ngModel)]="personCard.dateOfBirth" [ngModelOptions]="{standalone: true}"></md-input>
+				<md-input placeholder="Par sevi" type="textarea" [(ngModel)]="personCard.aboutMe" [ngModelOptions]="{standalone: true}"></md-input>
+				<button type="submit" [disabled]="!form.valid" class="btn btn-success">Ok</button>
+				<button type="reset" class="btn btn-warning">Cancel</button>
+			</form>
+		</md-card-content>
+	</md-card>
+</div>
+<div *ngIf="globals.state === _eState.Edit ">
+	<md-card class="demo-card demo-basic">
+		<md-toolbar color="primary">{{globals.state}} current Person Card</md-toolbar>
+		<md-card-content>
+			<form (submit)="updatePersonCard()">
+				<md-input placeholder="Vārds" type="text" [(ngModel)]="personCard.name" [ngModelOptions]="{standalone: true}"></md-input>
+				<md-input placeholder="Uzvārds" type="text" [(ngModel)]="personCard.surname" [ngModelOptions]="{standalone: true}"></md-input>
+				<md-input placeholder="Dzimšanas datums" type="date" [(ngModel)]="personCard.dateOfBirth" [ngModelOptions]="{standalone: true}"></md-input>
+				<md-input placeholder="Par sevi" type="textarea" [(ngModel)]="personCard.aboutMe" [ngModelOptions]="{standalone: true}"></md-input>
+				<button type="submit" class="btn btn-success">OK</button>  
+				<button type="reset" class="btn btn-warning">Cancel</button>
+			</form>
+		</md-card-content>
+	</md-card>
+</div>
+

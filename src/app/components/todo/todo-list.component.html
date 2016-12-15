@@ -1,0 +1,10 @@
+<br/>
+<br/>
+<br/>
+<h1>{{globals.state}}</h1>
+<h3>Total count of todo items: {{todoList.length}}</h3>
+<todo *ngFor="let todoItem of todoList" index="todoItem.id"
+      [todo]="todoItem"
+	[todoList] = "todoList"
+      ><!--  [class.editing]="todo.editing" -->
+</todo>

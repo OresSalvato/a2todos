@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <div class="container">
+  <h1>Hello, world!</h1>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+
+
+
+<div ng-controller="CarouselDemoCtrl">
+  <div style="height: 305px">
+    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+      <div uib-slide ng-repeat="let picture in pictureList track by picture.id" index="picture.id">
+        <img [src]="picture.imageURL" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{picture.id}}</h4>
+          <p>{{picture.title}}</p>
+        </div>
+      </div>
+    </div>
+</div>

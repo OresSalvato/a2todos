@@ -1,0 +1,9 @@
+<md-list>
+	<md-list-item *ngFor="let personCard of personCardList; let index = index" class="noright">
+		<md-icon md-list-avatar>folder</md-icon>
+		<div class="md-list-item-text" layout="column">
+			<h4 md-line (click)="editPersonCard(personCard)">{{personCard.id}}. {{personCard.name}} {{personCard.surname}}</h4>
+			<button class="btn btn-danger" (click)="deletePersonCard(personCard)">X</button>
+		</div>
+	</md-list-item>
+</md-list>
